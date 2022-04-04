@@ -1,4 +1,4 @@
-from assignment3.algorithms.single_state import get_initial_solution, quality, get_number_of_bins
+from src.algorithms.single_state import get_initial_solution, quality, get_number_of_bins
 
 
 # TODO

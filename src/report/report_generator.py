@@ -1,8 +1,8 @@
 from docx import Document
 from docx.shared import Inches
 from docx.enum.text import WD_BREAK
-from assignment3.report.experiment_files import *
-from assignment3.report.utils import get_descriptive_statistics
+from src.report.experiment_files import *
+from src.report.utils import get_descriptive_statistics
 import pandas as pd
 
 

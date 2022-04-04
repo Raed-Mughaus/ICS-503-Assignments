@@ -1,9 +1,9 @@
 from os.path import isdir
 from pathlib import Path
-from assignment3.report.data_generator import generate_data
-from assignment3.report.plots_generator import generate_plots, generate_final_plots
-from assignment3.report.report_generator import generate_report
-from assignment3.report.algorithm import *
+from src.report.data_generator import generate_data
+from src.report.plots_generator import generate_plots, generate_final_plots
+from src.report.report_generator import generate_report
+from src.report.algorithm import *
 
 
 INSTANCES_INDICES = range(10)

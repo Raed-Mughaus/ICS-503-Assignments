@@ -1,5 +1,5 @@
 import pandas as pd
-from assignment3.report.experiment_files import get_data_path
+from src.report.experiment_files import get_data_path
 
 
 class Algorithm:
