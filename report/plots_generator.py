@@ -1,6 +1,6 @@
 from pathlib import Path
-from src.report.utils import *
-from src.report.experiment_files import *
+from report.utils import *
+from report.experiment_files import *
 from matplotlib.pyplot import figure
 import pandas as pd
 

@@ -1,4 +1,4 @@
-from src.report.experiment_files import *
+from report.experiment_files import *
 from pathlib import Path
 import pandas as pd
 from tqdm import tqdm
