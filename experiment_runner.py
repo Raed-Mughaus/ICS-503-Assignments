@@ -11,7 +11,8 @@ RUNS_COUNT = 10  # must be at least 2
 
 ALGORITHMS = [
 
-    # Use importable to import previous experiment results
+    # Use importable to import previous experiment results. 
+    # You need to copy your previous experiment directory (named Experiment N) into /experiments/Experiment N
     # Importable(
     #     'Hill-climbing', # your previously provided algorithm name
     #     'HC', # your previously provided instance name
