@@ -4,6 +4,8 @@ from report.data_generator import generate_data
 from report.plots_generator import generate_plots, generate_final_plots
 from report.report_generator import generate_report
 from report.algorithm import *
+from algorithms.genetic import genetic_algorithm
+from algorithms.single_state import *
 
 
 INSTANCES_INDICES = range(10)
