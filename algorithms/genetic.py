@@ -1,5 +1,8 @@
 from algorithms.single_state import get_initial_solution, quality, get_number_of_bins
+from copy import deepcopy
 
+
+#TODO: deepcopy makes your code slow. If you do not need it, remove it from the genetic_algorithm. It is called 4 times.
 
 # TODO
 POPULATION_SIZE = 2
@@ -45,12 +48,12 @@ def genetic_algorithm(items, mutation_probability, crossover_probability):
         for _ in range(POPULATION_SIZE // 2):
             parent_a = select_with_replacement(population, population_fitness)
             parent_b = select_with_replacement(population, population_fitness)
-            child_a, child_b = crossover(parent_a, parent_b, crossover_probability)
+            child_a, child_b = crossover(deepcopy(parent_a), deepcopy(parent_b), crossover_probability)
             q.append(
-                mutate(child_a, mutation_probability)
+                mutate(deepcopy(child_a), mutation_probability)
             )
             q.append(
-                mutate(child_b, mutation_probability)
+                mutate(deepcopy(child_b), mutation_probability)
             )
         population = q
     return best, current_best_list
