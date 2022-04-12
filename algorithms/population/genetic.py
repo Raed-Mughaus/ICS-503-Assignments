@@ -1,6 +1,7 @@
-from algorithms.single_state import get_initial_solution, quality, get_number_of_bins
+from algorithms.initial_solution import get_initial_population
+from algorithms.quality import *
+from algorithms.representation import get_number_of_bins
 from copy import deepcopy
-
 
 #TODO: deepcopy makes your code slow. If you do not need it, remove it from the genetic_algorithm. It is called 4 times.
 
@@ -25,17 +26,11 @@ def mutate(individual, mutation_probability):
 
 
 def genetic_algorithm(items, mutation_probability, crossover_probability):
-    population = [
-        get_initial_solution(items)
-        for _ in range(POPULATION_SIZE)
-    ]
+    population = get_initial_population(items, POPULATION_SIZE)
     best = None
     current_best_list = []
     for i in range(ITERATIONS_COUNT):
-        population_fitness = [
-            quality(individual)
-            for individual in population
-        ]
+        population_fitness = population_quality(population)
         current_best = None
         for j, individual in enumerate(population):
             individual_quality = population_fitness[j]
