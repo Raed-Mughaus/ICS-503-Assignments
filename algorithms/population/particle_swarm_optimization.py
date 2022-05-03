@@ -3,7 +3,7 @@ from algorithms.quality import quality
 from algorithms.representation import get_number_of_bins
 from random import sample
 from collections import namedtuple
-from numpy.random import random as rand_vec
+import numpy.random as np_rand
 
 SWARM_SIZE = 0
 NEIGHBORHOOD_SIZE = 0
@@ -60,17 +60,17 @@ def particle_swarm_optimization(items):
     current_best_list = []
     for _ in range(ITERATIONS_COUNT):
         for i, individual in enumerate(population):
-            personal_best = best_records[i]
+            personal_best, _ = best_records[i]
             informants = sample(best_records, NEIGHBORHOOD_SIZE)
-            informants_best = max(informants, key=lambda record: record.quality)
-            global_best = max(best_records, key=lambda record: record.quality)
+            informants_best, _ = max(informants, key=lambda record: record.quality)
+            global_best, _ = max(best_records, key=lambda record: record.quality)
 
-            b = PERSONAL_BEST_PROPORTION * rand_vec(VECTOR_LENGTH)
-            c = INFORMANTS_BEST_PROPORTION * rand_vec(VECTOR_LENGTH)
-            d = GLOBAL_BEST_PROPORTION * rand_vec(VECTOR_LENGTH)
+            b = PERSONAL_BEST_PROPORTION * np_rand.random(VECTOR_LENGTH)
+            c = INFORMANTS_BEST_PROPORTION * np_rand.random(VECTOR_LENGTH)
+            d = GLOBAL_BEST_PROPORTION * np_rand.random(VECTOR_LENGTH)
 
             velocities[i] = add_4(
-                multiply_val_by_vec(VELOCITY_PROPORTION, velocities),
+                multiply_val_by_vec(VELOCITY_PROPORTION, velocities[i]),
                 multiply_vec_by_vec(b, subtract(personal_best, individual)),
                 multiply_vec_by_vec(c, subtract(informants_best, individual)),
                 multiply_vec_by_vec(d, subtract(global_best, individual)),
